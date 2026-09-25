@@ -1,0 +1,18 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# PostgreSQL/local files
+*.sql
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.dbfrontend/file...zip
+*.zip

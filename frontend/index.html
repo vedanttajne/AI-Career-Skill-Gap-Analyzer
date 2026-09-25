@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Career & Skill Gap Analyzer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+            color: white;
+        }
+
+        nav {
+            width: 100%;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        button {
+            border: none;
+            padding: 12px 22px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .login {
+            background: transparent;
+            color: white;
+            border: 1px solid #6366f1;
+        }
+
+        .register {
+            background: #6366f1;
+            color: white;
+        }
+
+        .hero {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 8%;
+            gap: 50px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid #8b5cf6;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #a78bfa;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .start-btn {
+            background: #7c3aed;
+            color: white;
+            padding: 16px 30px;
+            font-size: 17px;
+            border-radius: 12px;
+        }
+
+        .start-btn:hover,
+        .register:hover {
+            background: #8b5cf6;
+        }
+
+        .hero-card {
+            width: 380px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 22px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-card h2 {
+            margin-bottom: 25px;
+        }
+
+        .skill {
+            margin-bottom: 22px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+        }
+
+        .bar {
+            height: 9px;
+            background: #334155;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            border-radius: 20px;
+            background: #8b5cf6;
+        }
+
+        .python {
+            width: 85%;
+        }
+
+        .sql {
+            width: 65%;
+        }
+
+        .ml {
+            width: 45%;
+        }
+
+        .web {
+            width: 75%;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            nav {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            AI<span>Career</span>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="login" onclick="goToLogin()">Login</button>
+            <button class="register" onclick="goToRegister()">Register</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🚀 AI-Powered Career Analysis
+            </div>
+
+            <h1>
+                Discover Your
+                <span>Career Potential</span>
+            </h1>
+
+            <p>
+                Analyze your current skills, discover your skill gaps,
+                and get a personalized learning roadmap to reach your
+                dream career.
+            </p>
+
+            <button class="start-btn" onclick="goToRegister()">
+                Start Your Career Analysis →
+            </button>
+
+        </div>
+
+        <div class="hero-card">
+
+            <h2>📊 Skill Analysis</h2>
+
+            <div class="skill">
+                <div class="skill-header">
+                    <span>Python</span>
+                    <span>85%</span>
+                </div>
+
+                <div class="bar">
+                    <div class="fill python"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-header">
+                    <span>SQL</span>
+                    <span>65%</span>
+                </div>
+
+                <div class="bar">
+                    <div class="fill sql"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-header">
+                    <span>Machine Learning</span>
+                    <span>45%</span>
+                </div>
+
+                <div class="bar">
+                    <div class="fill ml"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-header">
+                    <span>Web Development</span>
+                    <span>75%</span>
+                </div>
+
+                <div class="bar">
+                    <div class="fill web"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+
+        function goToLogin() {
+            window.location.href = "login.html";
+        }
+
+        function goToRegister() {
+            window.location.href = "register.html";
+        }
+
+    </script>
+
+</body>
+</html>

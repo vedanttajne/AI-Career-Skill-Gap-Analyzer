@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Analysis | AI Career</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            color: #cbd5e1;
+            font-size: 17px;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 22px;
+            padding: 35px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .section-description {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #e2e8f0;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #475569;
+            background: #111827;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        select:focus,
+        input:focus {
+            border-color: #8b5cf6;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .skill-option {
+            position: relative;
+        }
+
+        .skill-option input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .skill-option label {
+            display: block;
+            padding: 13px;
+            text-align: center;
+            background: #172033;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: normal;
+            transition: 0.2s;
+        }
+
+        .skill-option input:checked + label {
+            background: #5b21b6;
+            border-color: #a78bfa;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .resume-box {
+            border: 2px dashed #475569;
+            border-radius: 14px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .resume-box:hover {
+            border-color: #8b5cf6;
+        }
+
+        .resume-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .resume-box p {
+            color: #94a3b8;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .analyze-btn {
+            width: 100%;
+            padding: 17px;
+            border: none;
+            border-radius: 12px;
+            background: #7c3aed;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .analyze-btn:hover {
+            background: #8b5cf6;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #94a3b8;
+            text-decoration: none;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 18px;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 700px) {
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .form-card {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .skills {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="logo">
+                AI<span>Career</span>
+            </div>
+
+            <h1>🎯 Analyze Your Career</h1>
+
+            <p>
+                Tell us about yourself and discover the skills
+                you need for your target career.
+            </p>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <form id="analysisForm">
+
+
+                <!-- Career Goal -->
+
+                <div class="section">
+
+                    <div class="section-title">
+                        🎯 Career Goal
+                    </div>
+
+                    <div class="section-description">
+                        Which career do you want to pursue?
+                    </div>
+
+                    <label for="career">
+                        Target Career
+                    </label>
+
+                    <select id="career" required>
+
+                        <option value="">
+                            Select your target career
+                        </option>
+
+                        <option value="AI/ML Engineer">
+                            AI / ML Engineer
+                        </option>
+
+                        <option value="Data Scientist">
+                            Data Scientist
+                        </option>
+
+                        <option value="Data Analyst">
+                            Data Analyst
+                        </option>
+
+                        <option value="Full Stack Developer">
+                            Full Stack Developer
+                        </option>
+
+                        <option value="Software Developer">
+                            Software Developer
+                        </option>
+
+                        <option value="Cybersecurity Analyst">
+                            Cybersecurity Analyst
+                        </option>
+
+                        <option value="Cloud Engineer">
+                            Cloud Engineer
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Education and Experience -->
+
+                <div class="section">
+
+                    <div class="section-title">
+                        🎓 Background
+                    </div>
+
+                    <div class="section-description">
+                        Help us understand your current level.
+                    </div>
+
+                    <div class="two-column">
+
+                        <div>
+
+                            <label for="education">
+                                Education
+                            </label>
+
+                            <select id="education" required>
+
+                                <option value="">
+                                    Select education
+                                </option>
+
+                                <option value="Diploma">
+                                    Diploma
+                                </option>
+
+                                <option value="B.Tech">
+                                    B.Tech / B.E.
+                                </option>
+
+                                <option value="M.Tech">
+                                    M.Tech
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="experience">
+                                Experience Level
+                            </label>
+
+                            <select id="experience" required>
+
+                                <option value="">
+                                    Select experience
+                                </option>
+
+                                <option value="Beginner">
+                                    Beginner / Student
+                                </option>
+
+                                <option value="Intermediate">
+                                    Intermediate
+                                </option>
+
+                                <option value="Advanced">
+                                    Advanced
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Skills -->
+
+                <div class="section">
+
+                    <div class="section-title">
+                        💻 Current Skills
+                    </div>
+
+                    <div class="section-description">
+                        Select the skills you already know.
+                    </div>
+
+
+                    <div class="skills">
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="python" value="Python">
+                            <label for="python">Python</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="cpp" value="C++">
+                            <label for="cpp">C++</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="java" value="Java">
+                            <label for="java">Java</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="html" value="HTML">
+                            <label for="html">HTML</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="css" value="CSS">
+                            <label for="css">CSS</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="javascript" value="JavaScript">
+                            <label for="javascript">JavaScript</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="sql" value="SQL">
+                            <label for="sql">SQL</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="react" value="React">
+                            <label for="react">React</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="git" value="Git">
+                            <label for="git">Git & GitHub</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="numpy" value="NumPy">
+                            <label for="numpy">NumPy</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="pandas" value="Pandas">
+                            <label for="pandas">Pandas</label>
+                        </div>
+
+                        <div class="skill-option">
+                            <input type="checkbox" id="ml" value="Machine Learning">
+                            <label for="ml">Machine Learning</label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Resume -->
+
+                <div class="section">
+
+                    <div class="section-title">
+                        📄 Resume
+                    </div>
+
+                    <div class="section-description">
+                        Resume analysis will be connected to the
+                        backend in the next stage.
+                    </div>
+
+                    <div class="resume-box">
+
+                        <div class="resume-icon">
+                            📄
+                        </div>
+
+                        <strong>
+                            Upload your resume
+                        </strong>
+
+                        <p>
+                            PDF or DOCX — coming in the next stage
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="analyze-btn"
+                >
+                    🔍 Analyze My Career
+                </button>
+
+                <div id="message"></div>
+<div id="result" style="display: none; margin-top: 30px;">
+
+    <h2>Career Analysis Result</h2>
+
+    <h3 id="matchPercentage"></h3>
+
+    <h3>✅ Matched Skills</h3>
+    <ul id="matchedSkills"></ul>
+
+    <h3>❌ Missing Skills</h3>
+    <ul id="missingSkills"></ul>
+
+    <h3>ℹ️ Additional Skills</h3>
+<ul id="additionalSkills"></ul>
+
+</div>
+            </form>
+
+        </div>
+
+
+        <a href="dashboard.html" class="back">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+<script>
+
+    const form = document.getElementById("analysisForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const career =
+            document.getElementById("career").value;
+
+        const education =
+            document.getElementById("education").value;
+
+        const experience =
+            document.getElementById("experience").value;
+
+
+        const selectedSkills = [];
+
+        document
+            .querySelectorAll(".skill-option input:checked")
+            .forEach(function(skill) {
+
+                selectedSkills.push(skill.value);
+
+            });
+
+
+        if (selectedSkills.length === 0) {
+
+            message.textContent =
+                "Please select at least one current skill.";
+
+            return;
+        }
+
+
+        message.textContent =
+            "Analyzing your skills...";
+
+
+        try {
+
+            const response = await fetch(
+                "http://127.0.0.1:8000/analyze",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        career: career,
+                        skills: selectedSkills
+                    })
+                }
+            );
+
+
+            const result = await response.json();
+
+
+            if (!response.ok) {
+
+                message.textContent =
+                    result.detail || "Analysis failed.";
+
+                return;
+            }
+
+
+            const analysisData = {
+
+                career: career,
+
+                education: education,
+
+                experience: experience,
+
+                skills: selectedSkills,
+
+                match_percentage:
+                    result.match_percentage,
+
+                matched_skills:
+                    result.matched_skills,
+
+                missing_skills:
+                    result.missing_skills
+
+            };
+
+
+            localStorage.setItem(
+                "analysisData",
+                JSON.stringify(analysisData)
+            );
+
+
+            message.textContent =
+                "Analysis completed successfully!";
+
+            document.getElementById("result").style.display = "block";
+
+document.getElementById("matchPercentage").textContent =
+    result.match_percentage + "% Skill Match";
+
+const matchedList =
+    document.getElementById("matchedSkills");
+
+matchedList.innerHTML = "";
+
+result.matched_skills.forEach(function(skill) {
+
+    const li = document.createElement("li");
+
+    li.textContent = skill;
+
+    matchedList.appendChild(li);
+
+});
+
+
+const missingList =
+    document.getElementById("missingSkills");
+
+missingList.innerHTML = "";
+
+result.missing_skills.forEach(function(skill) {
+
+    const li = document.createElement("li");
+
+    li.textContent = skill;
+
+    missingList.appendChild(li);
+
+});
+
+
+/* =========================
+   Additional Skills
+========================= */
+
+const additionalList =
+    document.getElementById("additionalSkills");
+
+additionalList.innerHTML = "";
+
+selectedSkills.forEach(function(skill) {
+
+    if (
+        !result.matched_skills.includes(skill) &&
+        !result.missing_skills.includes(skill)
+    ) {
+
+        const li = document.createElement("li");
+
+        li.textContent = skill;
+
+        additionalList.appendChild(li);
+    }
+
+});
+
+
+console.log("Analysis Result:", result);
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            message.textContent =
+                "Unable to connect to the analysis server.";
+
+        }
+
+    });
+
+</script>
