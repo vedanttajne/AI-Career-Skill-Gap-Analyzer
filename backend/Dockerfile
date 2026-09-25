@@ -9,11 +9,12 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Copy backend files
-COPY . /app
+# Copy backend files from repository root
+COPY backend/requirements.txt /app/requirements.txt
+COPY backend /app
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Render provides the PORT environment variable
+# Start FastAPI
 CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
