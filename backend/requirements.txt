@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+psycopg2-binary
+python-dotenv
+pwdlib
+python-multipart
+pymupdf
+pytesseract
+pillow
+python-docx
+pypdf

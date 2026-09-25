@@ -1,18 +1,22 @@
+import os
 import psycopg2
+from dotenv import load_dotenv
 
+# Load .env file
+load_dotenv()
 
-connection = psycopg2.connect(
-    host="localhost",
-    database="career_skill_gap",
-    user="postgres",
-    password="VEDANT"
-)
+# Get Supabase database URL
+DATABASE_URL = os.getenv("DATABASE_URL")
 
+if not DATABASE_URL:
+    raise Exception("DATABASE_URL not found in .env file")
 
-print("PostgreSQL connected successfully!")
+# Connect to Supabase PostgreSQL
+connection = psycopg2.connect(DATABASE_URL)
 
+print("Supabase PostgreSQL connected successfully!")
 
-# Check which database FastAPI is connected to
+# Check database connection
 cursor = connection.cursor()
 
 cursor.execute("""
