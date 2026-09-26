@@ -2,11 +2,6 @@
 
 An AI-based career guidance web application that analyzes a student's skills, identifies skill gaps, recommends suitable career roles, and provides personalized learning guidance.
 
-## 🚀 Live Project
-
-🌐 **Website:**  
-https://ai-career-skill-analyzer.vercel.app/
-
 ## 📌 Project Overview
 
 The **AI Career & Skill Gap Analyzer** helps students understand their current technical skills and discover what skills they need to develop for their desired career.
